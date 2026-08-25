@@ -12,9 +12,10 @@ window.SHOP_SHIRTS = [
         id: "shirt1",
         title: "doodler",
         description: "test",
-        price: 25,
+        price: 35,
         images: [
             "../../assets/shop/mockups/essential cotton/doodler/EC_doodler00001.png",
+            "../../assets/shop/mockups/essential cotton/doodler/EC_doodler00002.png",
            
         ],
         sizes: ["S", "M", "L", "XL"],
@@ -24,9 +25,10 @@ window.SHOP_SHIRTS = [
         id: "shirt2",
         title: "poser",
         description: "text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb",
-        price: 25,
+        price: 35,
         images: [
-            "../../assets/shop/shirt2.avif"
+            "../../assets/shop/mockups/essential cotton/doodler/EC_poser00001.png",
+            "../../assets/shop/mockups/essential cotton/doodler/EC_poser00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
         swatch: "orange"
