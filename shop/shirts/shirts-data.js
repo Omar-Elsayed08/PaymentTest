@@ -12,10 +12,10 @@ window.SHOP_SHIRTS = [
         id: "shirt1",
         title: "doodler",
         description: "test",
-        price: 35,
+        price: 36,
         images: [
-            "../../assets/shop/mockups/essential cotton/doodler/EC_doodler00001.png",
-            "../../assets/shop/mockups/essential cotton/doodler/EC_doodler00002.png",
+            "../../assets/shop/mockups/oversized snow washed /doodler/SW_doodler00001.png",
+            "../../assets/shop/mockups/oversized snow washed /doodler/SW_doodler00002.png",
            
         ],
         sizes: ["S", "M", "L", "XL"],
@@ -25,80 +25,156 @@ window.SHOP_SHIRTS = [
         id: "shirt2",
         title: "poser",
         description: "text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb",
-        price: 35,
+        price: 36,
         images: [
-            "../../assets/shop/mockups/essential cotton/poser/EC_poser00001.png",
-            "../../assets/shop/mockups/essential cotton/poser/EC_poser00002.png"
+            "../../assets/shop/mockups/oversized snow washed /poser/SW_poser00001.png",
+            "../../assets/shop/mockups/oversized snow washed /poser/SW_poser00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
         swatch: "orange"
     },
     {
         id: "shirt3",
-        title: "Shirt 3",
+        title: "adrien brody",
         description: "text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb",
-        price: 25,
+        price: 36,
         images: [
-            "../../assets/shop/shirt3.avif"
+            "../../assets/shop/mockups/oversized snow washed /adrien brody/SW_adrienbrody00001.png",
+            "../../assets/shop/mockups/oversized snow washed /adrien brody/SW_adrienbrody00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
         swatch: "black"
     },
     {
         id: "shirt4",
-        title: "Shirt 4",
+        title: "stork",
         description: "text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb",
-        price: 25,
+        price: 42,
         images: [
-            "../../assets/shop/shirt1.avif"
+            "../../assets/shop/mockups/oversized snow washed /storks/storks/SW_stork00001.png",
+            "../../assets/shop/mockups/oversized snow washed /storks/storks/SW_stork00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
         swatch: "black"
     },
     {
         id: "shirt5",
-        title: "Shirt 5",
+        title: "purple people eater",
         description: "text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb",
-        price: 25,
+        price: 42,
         images: [
-            "../../assets/shop/shirt2.avif"
+            "../../assets/shop/mockups/oversized snow washed /ppe/SW_ppe00003.png",
+            "../../assets/shop/mockups/oversized snow washed /ppe/SW_ppe00004.png"
         ],
         sizes: ["S", "M", "L", "XL"],
         swatch: "blue"
     },
     {
         id: "shirt6",
-        title: "Shirt 6",
+        title: "house",
         description: "text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb",
-        price: 25,
+        price: 42,
         images: [
-            "../../assets/shop/shirt3.avif"
+            "../../assets/shop/mockups/oversized snow washed /house1/SW_house1_00001.png",
+            "../../assets/shop/mockups/oversized snow washed /house1/SW_house1_00002.png",
         ],
         sizes: ["S", "M", "L", "XL"],
         swatch: "orange"
     },
     {
         id: "shirt7",
-        title: "Shirt 7",
+        title: "squiggles",
         description: "text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb",
-        price: 25,
+        price: 42,
         images: [
-            "../../assets/shop/shirt1.avif"
+            "../../assets/shop/mockups/oversized snow washed /squiggles/SW_squiggles00001.png",
+            "../../assets/shop/mockups/oversized snow washed /squiggles/SW_squiggles00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
         swatch: "black"
     },
      {
         id: "shirt8",
-        title: "hjsjfgh",
+        title: "circus lion",
         description: "rajhfjafjurb",
-        price: 25.50,
+        price: 42,
         images: [
-            "../../assets/shop/shirt2.avif",
-            "../../assets/GalleryAssets/visual-art/ArtPiece.png",
-            "../../assets/images/HeadphoneBlob.png"
+            "../../assets/shop/mockups/oversized snow washed /c lion/SW_clion00001.png",
+            "../../assets/shop/mockups/oversized snow washed /c lion/SW_clion00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
         swatch: "black"
-    }
+    },
+        {
+        id: "shirt9",
+        title: "circus crocodile",
+        description: "rajhfjafjurb",
+        price: 42,
+        images: [
+            "../../assets/shop/mockups/oversized snow washed /c croc/SW_ccroc00001.png",
+            "../../assets/shop/mockups/oversized snow washed /c croc/SW_ccroc00002.png"
+        ],
+        sizes: ["S", "M", "L", "XL"],
+        swatch: "black"
+    },
+        {
+        id: "shirt10",
+        title: "circus elephant",
+        description: "rajhfjafjurb",
+        price: 42,
+        images: [
+            "../../assets/shop/mockups/oversized snow washed /c elephant/SW_celephant00002.png",
+            "../../assets/shop/mockups/oversized snow washed /c elephant/SW_celephant00003.png"
+        ],
+        sizes: ["S", "M", "L", "XL"],
+        swatch: "black"
+    },
+        {
+        id: "shirt11",
+        title: "circus monkey",
+        description: "rajhfjafjurb",
+        price: 42,
+        images: [
+            "../../assets/shop/mockups/oversized snow washed /c monkey/SW_cmonkey00001.png",
+            "../../assets/shop/mockups/oversized snow washed /c monkey/SW_cmonkey00002.png"
+        ],
+        sizes: ["S", "M", "L", "XL"],
+        swatch: "black"
+    },
+        {
+        id: "shirt12",
+        title: "circus bunny",
+        description: "rajhfjafjurb",
+        price: 42,
+        images: [
+            "../../assets/shop/mockups/oversized snow washed /c bunny/SW_cbunny00001.png",
+            "../../assets/shop/mockups/oversized snow washed /c bunny/SW_cbunny00002.png"
+        ],
+        sizes: ["S", "M", "L", "XL"],
+        swatch: "black"
+    },
+        {
+        id: "shirt13",
+        title: "circus ensemble",
+        description: "rajhfjafjurb",
+        price: 42,
+        images: [
+            "../../assets/shop/mockups/oversized snow washed /c grid/SW_cgrid00001.png",
+            "../../assets/shop/mockups/oversized snow washed /c grid/SW_cgrid00002.png"
+        ],
+        sizes: ["S", "M", "L", "XL"],
+        swatch: "black"
+    },
+        {
+        id: "shirt14",
+        title: "circus outlines",
+        description: "rajhfjafjurb",
+        price: 42,
+        images: [
+            "../../assets/shop/mockups/oversized snow washed /c grid outline/SW_cgridoutline00001.png",
+            "../../assets/shop/mockups/oversized snow washed /c grid outline/SW_cgridoutline00002.png"
+        ],
+        sizes: ["S", "M", "L", "XL"],
+        swatch: "black"
+    },
 ];
