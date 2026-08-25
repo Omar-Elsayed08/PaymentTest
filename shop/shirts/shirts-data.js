@@ -22,7 +22,7 @@ window.SHOP_SHIRTS = [
     },
     {
         id: "shirt2",
-        title: "Shirt 2",
+        title: "poser",
         description: "text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb",
         price: 25,
         images: [
