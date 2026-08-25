@@ -27,8 +27,8 @@ window.SHOP_SHIRTS = [
         description: "text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb text blurb text blurb more text its a blurb",
         price: 35,
         images: [
-            "../../assets/shop/mockups/essential cotton/doodler/EC_poser00001.png",
-            "../../assets/shop/mockups/essential cotton/doodler/EC_poser00002.png"
+            "../../assets/shop/mockups/essential cotton/poser/EC_poser00001.png",
+            "../../assets/shop/mockups/essential cotton/poser/EC_poser00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
         swatch: "orange"
