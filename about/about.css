@@ -1,0 +1,259 @@
+:root {
+    --color-cream: #ffe49f;
+
+    --font-display: "Damsterdam", cursive;
+
+    --safe-top: max(3vw, calc(env(safe-area-inset-top, 0px) + 0.5rem));
+    --safe-right: max(3vw, env(safe-area-inset-right, 0px));
+    --safe-bottom: max(3vw, env(safe-area-inset-bottom, 0px));
+    --safe-left: max(3vw, env(safe-area-inset-left, 0px));
+
+
+    --graphic-width: 45vw;
+    --graphic-left: 0vw;
+    --graphic-top: var(--safe-top);
+
+    --info-width: 45vw;
+    --info-top: 12vw;
+    --info-left: 45vw;
+
+    --info2-width: 45vw;
+    --info2-top: 75vw;
+    --info2-left: 30vw;
+
+    --shadow-star-width: 12vw;
+    --shadow-star-left: calc(var(--info2-left) + var(--info2-width));
+    --shadow-star-top: var(--info2-top);
+
+    --music-list-width: var(--info2-width);
+    --music-list-left: var(--info2-left);
+    --music-list-top: 120vw;
+
+    --ellipse-width: 140vw;
+    --ellipse-left: -20vw;
+    --ellipse-top: 120vw;
+    --ellipse-aspect: 2351 / 1861;
+    --ellipse-fill: #8dc9e3;
+    --page-height-extra: 0px;
+    --page-height: calc(var(--ellipse-top) + var(--ellipse-width) * 1861 / 2351 / 2 + var(--page-height-extra));
+
+    --title-top: var(--safe-top);
+    --title-size: clamp(2.5rem, 10vw, 5rem);
+
+    --random-width:10vw;
+}
+
+@font-face {
+    font-family: "Damsterdam";
+    src: url("../assets/fonts/Damsterdam.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: clip;
+    overscroll-behavior: none;
+    background-color: var(--ellipse-fill);
+}
+
+
+.about-page {
+    width: 100%;
+    background-color: var(--ellipse-fill);
+}
+
+.about-canvas {
+    position: relative;
+    width: 100%;
+    height: var(--page-height);
+    overflow: hidden;
+    background-color: var(--color-cream);
+}
+
+.about-title,
+.about-info,
+.about-info2,
+.about-music-list,
+.about-shadow-star,
+.about-graphic {
+    z-index: 2;
+}
+
+.about-title {
+    position: absolute;
+    left: 50%;
+    top: var(--title-top);
+    transform: translateX(-50%);
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--title-size);
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    color: #000;
+}
+
+.about-info {
+    position: absolute;
+    left: var(--info-left);
+    top: var(--info-top);
+    width: var(--info-width);
+    height: auto;
+    display: block;
+}
+
+.about-info--mobile {
+    display: none;
+}
+
+.about-info2 {
+    position: absolute;
+    left: var(--info2-left);
+    top: var(--info2-top);
+    width: var(--info2-width);
+    height: auto;
+    display: block;
+}
+
+.about-music-list {
+    position: absolute;
+    left: var(--music-list-left);
+    top: var(--music-list-top);
+    width: var(--music-list-width);
+    height: auto;
+    display: block;
+}
+
+.about-shadow-star {
+    position: absolute;
+    left: var(--shadow-star-left);
+    top: var(--shadow-star-top);
+    width: var(--shadow-star-width);
+    z-index: 2;
+}
+
+.about-shadow-star__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform-origin: center center;
+    will-change: transform;
+}
+
+.about-ellipse {
+    position: absolute;
+    left: var(--ellipse-left);
+    top: var(--ellipse-top);
+    width: var(--ellipse-width);
+    aspect-ratio: var(--ellipse-aspect);
+    z-index: 1;
+}
+
+.about-ellipse svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.about-ellipse ellipse {
+    fill: var(--ellipse-fill);
+}
+
+.about-graphic {
+    position: absolute;
+    left: var(--graphic-left);
+    top: var(--graphic-top);
+    width: var(--graphic-width);
+    height: auto;
+    display: block;
+}
+
+.swiggle {
+    position: absolute;
+    rotate: 180deg;
+    height: auto;
+    display: block;
+    top: 5vw;
+}
+.white-rectangle{
+  position: absolute;
+  height: 10vh;
+    width: 100vw;
+    top: 0vw;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+    :root {
+        --mobile-gap: 16vw;
+
+        --title-size: 15vw;
+
+        --graphic-width: 70vw;
+        --graphic-left: 0vw;
+        --graphic-top: 57vw;
+
+        --info-width: 100vw;
+        --info-left: -5vw;
+        --info-top: 33vw;
+
+        --info2-width: 88vw;
+        --info2-left: 6vw;
+        --info2-top: 105vh;
+
+        --shadow-star-width: 50vw;
+        --shadow-star-left: calc(var(--info2-left) + var(--info2-width) - var(--shadow-star-width));
+        --shadow-star-top: 75vh;
+
+        --ellipse-width: 175vw;
+        --ellipse-left: -37.5vw;
+        --ellipse-top: calc(var(--info2-top) + var(--info2-width) * 1279 / 1305 + var(--mobile-gap));
+
+        --music-list-top: calc(var(--ellipse-top) + 10vw);
+
+        --page-height-extra: 20vw;
+
+        --random-width:10vw;
+    }
+
+    .about-info--desktop {
+        display: none;
+    }
+
+    .about-info--mobile {
+        display: block;
+    }
+
+  .swiggle {
+    position: absolute;
+    rotate: 180deg;
+    height: auto;
+    display: block;
+    top: 30vw;
+    width: 150vw;
+}
+.white-rectangle{
+  position: absolute;
+  height: 15vh;
+    width: 100vw;
+    top: 0vw;
+}
+
+}

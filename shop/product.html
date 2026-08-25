@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="shop-chrome.css">
+    <link rel="stylesheet" href="../nav.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Everything Burger</title>
+</head>
+<body>
+    <a class="shop-back" href="shop.html" data-shop-back>Back</a>
+
+    <div class="shop-toolbar">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+            <img src="../assets/images/BurgerIcon.png" alt="">
+        </button>
+        <a class="shop-cart" href="cart/cart.html">
+            Cart<span class="shop-cart__count" data-cart-count hidden>0</span>
+        </a>
+    </div>
+
+    <main class="product-page">
+        <div class="product-canvas">
+            <div class="product-layout" data-product hidden>
+                <div class="product-media">
+                    <div class="product-image" data-product-image>
+                        <img data-product-img alt="" hidden>
+                        <div class="product-image__nav" data-product-nav hidden>
+                            <button type="button" class="product-image__arrow" data-product-prev aria-label="Previous image">&#8249;</button>
+                            <button type="button" class="product-image__arrow" data-product-next aria-label="Next image">&#8250;</button>
+                        </div>
+                    </div>
+
+                    <div class="product-thumbs" data-product-thumbs hidden aria-label="Product images"></div>
+                </div>
+
+                <div class="product-info" data-product-info>
+                    <div class="product-tag-block" data-product-tag-block>
+                        <div class="product-tag">
+                            <picture class="product-tag__picture">
+                                <source media="(max-width: 799px)" srcset="../assets/images/MobileTag.png">
+                                <img class="product-tag__img" src="../assets/images/ShopTag.png" alt="">
+                            </picture>
+                            <div class="product-tag__text">
+                                <h1 class="product-tag__title" data-product-title>Shirt</h1>
+                                <p class="product-tag__price" data-product-price>$~~</p>
+                            </div>
+                        </div>
+
+                        <p class="product-desc" data-product-desc></p>
+                    </div>
+
+                    <form class="product-form" data-product-form>
+                        <div class="product-size-field" data-size-field>
+                            <span class="product-size__label" id="product-size-label">Size</span>
+                            <div class="product-size" role="group" aria-labelledby="product-size-label">
+                                <button type="button" class="product-size__btn" data-size-dec aria-label="Decrease size">&#8249;</button>
+                                <span class="product-size__value" data-size-value aria-live="polite"></span>
+                                <button type="button" class="product-size__btn" data-size-inc aria-label="Increase size">&#8250;</button>
+                            </div>
+                        </div>
+
+                        <div class="product-controls">
+                            <div class="product-qty" role="group" aria-label="Quantity">
+                                <button type="button" class="product-qty__btn" data-qty-dec aria-label="Decrease quantity">-</button>
+                                <span class="product-qty__value" data-qty-value aria-live="polite">1</span>
+                                <button type="button" class="product-qty__btn" data-qty-inc aria-label="Increase quantity">+</button>
+                            </div>
+                            <button type="submit" class="product-add" data-add-btn>add to cart</button>
+                        </div>
+                        <p class="product-msg" data-product-msg role="status" aria-live="polite" hidden></p>
+                    </form>
+                </div>
+            </div>
+
+            
+
+            <div class="shop-divider" aria-hidden="true">
+                <img
+                    class="shop-divider__swiggle"
+                    src="../assets/images/SwiggleEnd.png"
+                    alt=""
+                >
+            </div>
+
+            <div class="shop-footer-wrap">
+                <footer class="site-footer">
+                    <h2 class="site-footer__title">Contact</h2>
+                    <div class="site-footer__info-row">
+                        <div class="site-footer__details">
+                            <p>petercsnowden@gmail.com</p>
+                            <p>@peter.c.snowden</p>
+                            <p>(731) 803-8263</p>
+                        </div>
+                        <div class="site-footer__circles" aria-hidden="true">
+                            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="88" cy="30" r="26" fill="#FF6031"/>
+                                <circle cx="58" cy="40" r="24" fill="#95D4F0"/>
+                                <circle cx="32" cy="50" r="22" fill="#000000"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <a class="site-footer__guestbook" href="https://everythingburger.atabook.org/">Guest Book</a>
+                    <div class="site-footer__socials">
+                        <a class="social-btn" href="https://instagram.com/peter.c.snowden" target="_blank" rel="noopener">
+                            <img src="../assets/images/InstagramIcon.png" alt="Instagram">
+                        </a>
+                        <a class="social-btn" href="https://www.youtube.com/@UnstableSmiles" target="_blank" rel="noopener">
+                            <img src="../assets/images/YoutubeIcon.png" alt="YouTube">
+                        </a>
+                        <a class="social-btn" href="https://letterboxd.com/smilie/" target="_blank" rel="noopener">
+                            <img src="../assets/images/LetterBoxdIcon.png" alt="Letterboxd">
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </main>
+
+    <script src="../nav.js"></script>
+    <script src="shirts/shirts-data.js"></script>
+    <script src="prints/prints-data.js"></script>
+    <script src="more/more-data.js"></script>
+    <script src="js/shop-data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/product.js"></script>
+</body>
+</html>

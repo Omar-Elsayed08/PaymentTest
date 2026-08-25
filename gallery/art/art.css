@@ -1,0 +1,348 @@
+:root {
+    --color-cream: #ffe49f;
+    --color-blue: #95d4f0;
+    --color-black: #000;
+    --color-orange: #ff6031;
+    --color-white: #fff;
+
+    --font-display: "Damsterdam", cursive;
+    --font-body: "Averia Serif Libre", serif;
+
+    --ease-default: 0.25s ease;
+    --ease-quick: 0.2s ease;
+
+    --safe-top: max(3vw, calc(env(safe-area-inset-top, 0px) + 0.5rem));
+    --safe-right: max(3vw, env(safe-area-inset-right, 0px));
+    --safe-bottom: max(3vw, env(safe-area-inset-bottom, 0px));
+    --safe-left: max(3vw, env(safe-area-inset-left, 0px));
+
+
+    /* Art page */
+    --page-bg: var(--color-white);
+
+    /* Visual art banner */
+    --banner-width: 100vw;
+    --banner-left: 0vw;
+    --banner-top: 0vw;
+    --banner-z: 1;
+    --banner-aspect: 2561 / 1157;
+
+    /* Art gallery */
+    --gallery-margin-top: 0vw;
+
+    /* Gap cover */
+    --gap-cover-width: 100vw;
+    --gap-cover-height: 30vw;
+    --gap-cover-left: 0vw;
+    --gap-cover-top: 25vw;
+    --gap-cover-rotate: 0deg;
+    --gap-cover-z: 0;
+    --gap-cover-fill: var(--color-white);
+
+    /* Art entry */
+    --entry-bg: var(--color-white);
+    --entry-padding-y: 10vw;
+    --entry-padding-x: 0vw;
+    --entry-gap: 2vw;
+    --entry-piece-width: 45vw;
+    --entry-piece-max-width: 56rem;
+    --entry-title-size: 3vw;
+    --entry-title-color: var(--color-black);
+    --entry-title-weight: 700;
+    --entry-text-size: 2vw;
+    --entry-text-color: var(--color-black);
+    --entry-text-weight: 400;
+
+    /* Footer */
+    --footer-height: 40vw;
+    --footer-z: 60;
+    --footer-padding-y: 2vw;
+    --footer-padding-x: 1vw;
+    --footer-gap: 2vw;
+    --footer-title-size: 4vw;
+    --footer-text-size: 1.5vw;
+    --footer-info-gap: 3vw;
+    --footer-circles-size: 7vw;
+    --footer-guestbook-size: 2.5vw;
+    --footer-guestbook-width: 28.5vw;
+    --footer-social-size: 7vw;
+    --footer-social-gap: 4vw;
+
+}
+
+@font-face {
+    font-family: "Damsterdam";
+    src: url("../../assets/fonts/Damsterdam.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Averia Serif Libre";
+    src: url("../../assets/fonts/Averia_Serif_Libre/AveriaSerifLibre-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Averia Serif Libre";
+    src: url("../../assets/fonts/Averia_Serif_Libre/AveriaSerifLibre-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: clip;
+    overscroll-behavior: none;
+    background-color: var(--page-bg);
+}
+
+
+.art-page {
+    width: 100%;
+    background-color: var(--page-bg);
+}
+
+.art-canvas {
+    position: relative;
+    width: 100%;
+}
+
+.art-banner {
+    position: relative;
+    z-index: var(--banner-z);
+    display: block;
+    width: var(--banner-width);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: var(--banner-aspect);
+    margin-top: var(--banner-top);
+    margin-left: var(--banner-left);
+    object-fit: contain;
+}
+
+.art-gap-cover {
+    position: absolute;
+    left: var(--gap-cover-left);
+    top: var(--gap-cover-top);
+    width: var(--gap-cover-width);
+    height: var(--gap-cover-height);
+    z-index: var(--gap-cover-z);
+    pointer-events: none;
+    transform: rotate(var(--gap-cover-rotate));
+}
+
+.art-gap-cover svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.art-gap-cover rect {
+    fill: var(--gap-cover-fill);
+}
+
+.art-gallery {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin-top: var(--gallery-margin-top);
+}
+
+.art-entry {
+    width: 100%;
+    background-color: var(--entry-bg);
+    padding:
+        var(--entry-padding-y)
+        max(var(--entry-padding-x), var(--safe-left))
+        var(--entry-padding-y)
+        max(var(--entry-padding-x), var(--safe-right));
+}
+
+.art-entry__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--entry-gap);
+    width: var(--entry-piece-width);
+    max-width: var(--entry-piece-max-width);
+    margin-inline: auto;
+}
+
+.art-entry__title {
+    margin: 0;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: var(--entry-title-size);
+    font-weight: var(--entry-title-weight);
+    line-height: 1.2;
+    text-align: left;
+    color: var(--entry-title-color);
+}
+
+.art-entry__image {
+    width: 100%;
+}
+
+.art-entry__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.art-entry__text {
+    margin: 0;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: var(--entry-text-size);
+    font-weight: var(--entry-text-weight);
+    font-style: normal;
+    font-synthesis: none;
+    line-height: 1.5;
+    text-align: left;
+    color: var(--entry-text-color);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--footer-padding-y) var(--footer-padding-x);
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--footer-gap);
+    text-align: center;
+}
+
+.site-footer__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--footer-title-size);
+    line-height: 1;
+    color: var(--color-black);
+}
+
+.site-footer__info-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--footer-info-gap);
+}
+
+.site-footer__details {
+    margin: 0;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: var(--footer-text-size);
+    line-height: 1.5;
+    color: var(--color-black);
+}
+
+.site-footer__details p {
+    margin: 0;
+}
+
+.site-footer__circles {
+    flex: none;
+    width: var(--footer-circles-size);
+}
+
+.site-footer__circles svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.site-footer__guestbook {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--footer-guestbook-width);
+    padding: 0.6em 1.2em;
+    background-color: var(--color-cream);
+    color: var(--color-black);
+    font-family: var(--font-display);
+    font-size: var(--footer-guestbook-size);
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: color var(--ease-quick);
+}
+
+.site-footer__guestbook:hover,
+.site-footer__guestbook:focus-visible {
+    color: var(--color-orange);
+    outline: none;
+}
+
+.site-footer__socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--footer-social-gap);
+}
+
+.social-btn {
+    display: block;
+    width: var(--footer-social-size);
+    transition: transform var(--ease-quick);
+}
+
+.social-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.social-btn:hover,
+.social-btn:focus-visible {
+    transform: scale(1.08);
+    outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+    :root {
+        /* Mobile visual art banner */
+        --banner-width: 100vw;
+        --banner-left: 0vw;
+        --banner-top: 0vw;
+
+        /* Mobile art gallery */
+        --gallery-margin-top: 0vw;
+
+        /* Mobile gap cover */
+        --gap-cover-width: 100vw;
+        --gap-cover-height: 35vw;
+        --gap-cover-left: 0vw;
+        --gap-cover-top: 30vw;
+
+        /* Mobile art entry */
+        --entry-padding-y: 8vw;
+        --entry-piece-width: 92vw;
+        --entry-gap: 3vw;
+    }
+}

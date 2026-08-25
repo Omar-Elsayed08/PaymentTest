@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../shirts/shirts.css">
+    <link rel="stylesheet" href="../shop-chrome.css">
+    <link rel="stylesheet" href="../../nav.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Everything Burger</title>
+</head>
+<body>
+    <a class="shop-back" href="../shop.html">Back</a>
+
+    <div class="shop-toolbar">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+            <img src="../../assets/images/BurgerIcon.png" alt="">
+        </button>
+        <a class="shop-cart" href="../cart/cart.html">
+            Cart<span class="shop-cart__count" data-cart-count hidden>0</span>
+        </a>
+    </div>
+
+    <main class="shop-page">
+        <div class="shop-canvas">
+            <section class="shop-hero">
+                <header class="shop-header">
+                    <h1 class="shop-title">Prints</h1>
+                </header>
+
+                <div class="shirt-grid" data-shirt-grid data-category="prints"></div>
+            </section>
+
+            <div class="shop-divider" aria-hidden="true">
+                <img
+                    class="shop-divider__swiggle"
+                    src="../../assets/images/SwiggleEnd.png"
+                    alt=""
+                >
+            </div>
+
+            <div class="shop-footer-wrap">
+                <footer class="site-footer">
+                    <h2 class="site-footer__title">Contact</h2>
+                    <div class="site-footer__info-row">
+                        <div class="site-footer__details">
+                            <p>petercsnowden@gmail.com</p>
+                            <p>@peter.c.snowden</p>
+                            <p>(731) 803-8263</p>
+                        </div>
+                        <div class="site-footer__circles" aria-hidden="true">
+                            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="88" cy="30" r="26" fill="#FF6031"/>
+                                <circle cx="58" cy="40" r="24" fill="#95D4F0"/>
+                                <circle cx="32" cy="50" r="22" fill="#000000"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <a class="site-footer__guestbook" href="https://everythingburger.atabook.org/">Guest Book</a>
+                    <div class="site-footer__socials">
+                        <a class="social-btn" href="https://instagram.com/peter.c.snowden" target="_blank" rel="noopener">
+                            <img src="../../assets/images/InstagramIcon.png" alt="Instagram">
+                        </a>
+                        <a class="social-btn" href="https://www.youtube.com/@UnstableSmiles" target="_blank" rel="noopener">
+                            <img src="../../assets/images/YoutubeIcon.png" alt="YouTube">
+                        </a>
+                        <a class="social-btn" href="https://letterboxd.com/smilie/" target="_blank" rel="noopener">
+                            <img src="../../assets/images/LetterboxdIcon.png" alt="Letterboxd">
+                        </a>
+                    </div>
+                </footer>
+                <img
+                    class="shop-brand"
+                    src="../../assets/images/EverythingBurgerText.svg"
+                    alt="Everything Burger"
+                >
+            </div>
+        </div>
+    </main>
+
+    <script src="../../nav.js"></script>
+    <script src="../shirts/shirts-data.js"></script>
+    <script src="prints-data.js"></script>
+    <script src="../more/more-data.js"></script>
+    <script src="../js/shop-data.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/shirt-list.js"></script>
+</body>
+</html>

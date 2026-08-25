@@ -1,0 +1,297 @@
+:root {
+    --color-cream: #ffe49f;
+    --color-blue: #95d4f0;
+    --color-black: #000;
+    --color-white: #fff;
+
+    --font-display: "Damsterdam", cursive;
+    --font-body: "Averia Serif Libre", serif;
+
+    --safe-top: max(3vw, calc(env(safe-area-inset-top, 0px) + 0.5rem));
+    --safe-right: max(3vw, env(safe-area-inset-right, 0px));
+    --safe-bottom: max(3vw, env(safe-area-inset-bottom, 0px));
+    --safe-left: max(3vw, env(safe-area-inset-left, 0px));
+
+
+    /* More page */
+    --page-bg: var(--color-white);
+
+    /* More graphic banner */
+    --banner-width: 100vw;
+    --banner-left: 0vw;
+    --banner-top: 0vw;
+    --banner-z: 1;
+    --banner-aspect: 2560 / 1041;
+
+    /* More graphic 2 */
+    --graphic2-width: 100vw;
+    --graphic2-left: 0vw;
+    --graphic2-margin-top: -18vw;
+    --graphic2-z: 1;
+    --graphic2-aspect: 2558 / 1901;
+
+    /* Blue gap cover */
+    --gap-cover-width: 100vw;
+    --gap-cover-height: 55vw;
+    --gap-cover-left: 0vw;
+    --gap-cover-top: 45vw;
+    --gap-cover-rotate: 0deg;
+    --gap-cover-z: 0;
+    --gap-cover-fill: var(--color-blue);
+
+    /* More body */
+    --body-bg: var(--color-blue);
+    --body-min-height: 50vw;
+    --body-padding-top: -3vw;
+    --body-padding-x: 0vw;
+
+    /* More entry */
+    --entry-bg: transparent;
+    --entry-padding-y: 6vw;
+    --entry-padding-x: 0vw;
+    --entry-gap: 4vw;
+    --entry-info-gap: 2vw;
+    --entry-info-offset-left: 6vw;
+    --entry-max-width: 90vw;
+    --entry-image-width: 40vw;
+    --entry-title-size: 4vw;
+    --entry-title-color: var(--color-black);
+    --entry-text-size: 2vw;
+    --entry-text-color: var(--color-black);
+    --entry-text-weight: 700;
+
+}
+
+@font-face {
+    font-family: "Damsterdam";
+    src: url("../../assets/fonts/Damsterdam.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Averia Serif Libre";
+    src: url("../../assets/fonts/Averia_Serif_Libre/AveriaSerifLibre-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: clip;
+    overscroll-behavior: none;
+    background-color: var(--page-bg);
+}
+
+
+.more-page {
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--page-bg);
+}
+
+.more-canvas {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.more-banner {
+    position: relative;
+    z-index: var(--banner-z);
+    display: block;
+    width: var(--banner-width);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: var(--banner-aspect);
+    margin-top: var(--banner-top);
+    margin-left: var(--banner-left);
+    object-fit: contain;
+}
+
+.more-graphic2 {
+    position: relative;
+    z-index: var(--graphic2-z);
+    display: block;
+    width: var(--graphic2-width);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: var(--graphic2-aspect);
+    margin-top: var(--graphic2-margin-top);
+    margin-left: var(--graphic2-left);
+    object-fit: contain;
+}
+
+.more-gap-cover {
+    position: absolute;
+    left: var(--gap-cover-left);
+    top: var(--gap-cover-top);
+    width: var(--gap-cover-width);
+    height: var(--gap-cover-height);
+    z-index: var(--gap-cover-z);
+    pointer-events: none;
+    transform: rotate(var(--gap-cover-rotate));
+}
+
+.more-gap-cover svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.more-gap-cover rect {
+    fill: var(--gap-cover-fill);
+}
+
+.more-body {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    width: 100%;
+    min-height: var(--body-min-height);
+    padding:
+        var(--body-padding-top)
+        max(var(--body-padding-x), var(--safe-right))
+        max(var(--body-padding-x), var(--safe-bottom))
+        max(var(--body-padding-x), var(--safe-left));
+    background-color: var(--body-bg);
+}
+
+.more-gallery {
+    width: 100%;
+}
+
+.more-entry {
+    width: 100%;
+    background-color: var(--entry-bg);
+    padding:
+        var(--entry-padding-y)
+        max(var(--entry-padding-x), var(--safe-left))
+        var(--entry-padding-y)
+        max(var(--entry-padding-x), var(--safe-right));
+}
+
+.more-entry__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--entry-gap);
+    width: 100%;
+    max-width: var(--entry-max-width);
+    margin-inline: auto;
+}
+
+.more-entry__image {
+    flex: none;
+    width: var(--entry-image-width);
+}
+
+.more-entry__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.more-entry__info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--entry-info-gap);
+    margin-left: var(--entry-info-offset-left);
+}
+
+.more-entry__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--entry-title-size);
+    font-weight: 400;
+    line-height: 1.1;
+    text-align: left;
+    color: var(--entry-title-color);
+}
+
+.more-entry__text {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--entry-text-size);
+    font-weight: var(--entry-text-weight);
+    font-style: normal;
+    font-synthesis: none;
+    line-height: 1.5;
+    text-align: left;
+    color: var(--entry-text-color);
+
+}
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+    :root {
+        /* Mobile more banner */
+        --banner-width: 100vw;
+        --banner-left: 0vw;
+        --banner-top: 0vw;
+        --banner-z: 1;
+
+        /* Mobile more graphic 2 */
+        --graphic2-width: 100vw;
+        --graphic2-left: 0vw;
+        --graphic2-margin-top: -15vw;
+        --graphic2-z: 1;
+
+        /* Mobile gap cover */
+        --gap-cover-width: 100vw;
+        --gap-cover-height: 80vw;
+        --gap-cover-left: 0vw;
+        --gap-cover-top: 55vw;
+
+        /* Mobile more body */
+        --body-min-height: 40vw;
+        --body-padding-top: 6vw;
+
+        /* Mobile more entry */
+        --entry-padding-y: 8vw;
+        --entry-gap: 4vw;
+        --entry-info-gap: 3vw;
+        --entry-max-width: 92vw;
+        --entry-image-width: 100%;
+        --entry-title-size: 8vw;
+        --entry-text-size: 4vw;
+    }
+
+    .more-entry__content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .more-entry__info {
+        margin-left: 0;
+        align-items: center;
+        width: 100%;
+    }
+
+    .more-entry__title,
+    .more-entry__text {
+        text-align: center;
+    }
+}

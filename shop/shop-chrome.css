@@ -1,0 +1,92 @@
+.shop-back {
+    position: fixed;
+    top: var(--chrome-top, var(--safe-top));
+    left: var(--chrome-left, var(--safe-left));
+    z-index: var(--z-nav-toggle);
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4em 0.9em;
+    border: 1px solid var(--color-black);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    font-size: var(--shop-cart-size);
+    font-weight: 400;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: color var(--ease-quick), background-color var(--ease-quick);
+}
+
+@media (max-width: 799px) {
+    :root {
+        --chrome-clearance: clamp(2.75rem, 13vw, 4rem);
+        --page-header-pad-top: calc(var(--chrome-top, var(--safe-top)) + var(--chrome-clearance));
+    }
+
+    .shop-hero,
+    .cart-hero {
+        padding-top: var(--page-header-pad-top);
+    }
+}
+
+.shop-back:hover,
+.shop-back:focus-visible {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    outline: none;
+}
+
+.shop-toolbar {
+    position: fixed;
+    top: var(--chrome-top, var(--safe-top));
+    right: var(--chrome-right, var(--safe-right));
+    z-index: var(--z-nav-toggle);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.shop-toolbar .nav-toggle {
+    position: static;
+    top: auto;
+    right: auto;
+    left: auto;
+}
+
+.shop-cart {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.4em 0.9em;
+    border: 1px solid var(--color-black);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    font-size: var(--shop-cart-size);
+    font-weight: 400;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: color var(--ease-quick), background-color var(--ease-quick);
+}
+
+.shop-cart:hover,
+.shop-cart:focus-visible {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    outline: none;
+}
+
+.shop-cart__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.6em;
+    height: 1.6em;
+    padding: 0 0.35em;
+    border-radius: 999px;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    font-size: 0.8em;
+    line-height: 1;
+}
