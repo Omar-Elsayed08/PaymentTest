@@ -419,7 +419,12 @@ body {
         font-size: 3.2vw;
     }
 
-    .more-entry--book .more-entry__image {
-        width: min(70vw, 420px);
+     .more-entry--book .more-entry__image {
+        width: 92vw;
+    }
+
+    .flipbook__stage {
+        width: 50%;
+        align-self: flex-end;
     }
 }
