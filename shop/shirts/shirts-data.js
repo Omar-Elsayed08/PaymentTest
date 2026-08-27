@@ -156,7 +156,7 @@
             price: 42,
             swatch: "black",
             colors: lion.colors({
-                snow: { sw: [1, 1], ec: [1, 1] },
+                snow: { sw: [1, 2], ec: [1, 2] },
                 grey: { sw: [3, 4] },
                 brown: { sw: [15, 16] },
                 blue: { sw: [7, 8], ec: [5, 6] },
