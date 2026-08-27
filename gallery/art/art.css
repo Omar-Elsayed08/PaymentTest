@@ -364,6 +364,7 @@ body {
     padding: 4vw;
     background-color: rgba(255, 255, 255, 0.92);
     opacity: 0;
+    pointer-events: none;
     transition: opacity var(--ease-default);
 }
 
@@ -373,6 +374,7 @@ body {
 
 .lightbox.is-visible {
     opacity: 1;
+    pointer-events: auto;
 }
 
 .lightbox__image {

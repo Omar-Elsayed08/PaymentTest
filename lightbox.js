@@ -5,8 +5,11 @@
 
     const lightboxImage = document.getElementById('lightbox-image');
     const closeBtn = lightbox.querySelector('.lightbox__close');
+    const TRANSITION_MS = 250; // keep in sync with --ease-default
+    let closeTimer = null;
 
     function openLightbox(img) {
+        clearTimeout(closeTimer);
         lightboxImage.src = img.src;
         lightboxImage.alt = img.alt || '';
         lightbox.classList.add('is-open');
@@ -19,12 +22,12 @@
         lightbox.classList.remove('is-visible');
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        lightbox.addEventListener('transitionend', function handler(e) {
-            if (e.target !== lightbox) return;
+
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => {
             lightbox.classList.remove('is-open');
             lightboxImage.src = '';
-            lightbox.removeEventListener('transitionend', handler);
-        }, { once: true });
+        }, TRANSITION_MS);
     }
 
     gallery.addEventListener('click', (e) => {
@@ -34,7 +37,6 @@
 
     closeBtn.addEventListener('click', closeLightbox);
 
-    // click outside the image (on the white overlay) also closes it
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
     });
