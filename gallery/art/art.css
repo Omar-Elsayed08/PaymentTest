@@ -417,3 +417,14 @@ body {
     transform: scale(1.1);
     outline: none;
 }
+/* --------------------------------------------------------------------------
+   Nav contrast (art page only)
+   -------------------------------------------------------------------------- */
+
+.nav-toggle img {
+    transition: filter var(--ease-quick);
+}
+
+.nav-toggle.nav-toggle--on-dark img {
+    filter: invert(1);
+}
