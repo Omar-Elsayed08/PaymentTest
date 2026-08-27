@@ -35,7 +35,7 @@
             id: "shirt1",
             title: "doodler",
             description: "i imagine they're listening to someone like enya",
-            price: 3,
+            price: 36,
             swatch: "blue",
             colors: doodler.colors({
                 snow: { sw: [1, 2], ec: [1, 2] },
@@ -197,7 +197,7 @@
             swatch: "blue",
             colors: elephant.colors({
                 snow: { sw: [2, 3], ec: [1, 2] },
-                pink: { sw: [1, 18], ec: [5, 6] },
+                pink: { sw: [18, 1], ec: [5, 6] },
                 grey: { sw: [4, 5] },
                 blue: {ec: [7, 8] },
                 purple: {sw: [8, 9] },
@@ -278,7 +278,7 @@
                 snow: { sw: [1, 2], ec: [1, 8] },
                 purple: {sw: [3, 4] },
                 green: { sw: [5, 6] },
-                pink: { sw: [7, 8], ec: [3, 4] },
+                pink: { sw: [7, 8], ec: [7, 6] },
                 blue: { sw: [9, 10], ec: [5, 6] },
                 "dark-brown": {ec: [2, 3] },
                 "washed-grey": { sw: [11, 12] },

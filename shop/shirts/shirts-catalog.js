@@ -6,7 +6,7 @@
 
     var MATERIALS = [
         { id: "snow-washed", label: "oversized snow washed", note: "heavyweight, boxy fit", priceDelta: 0 },
-        { id: "essential-cotton", label: "essential cotton", note: "midweight, regular fit", priceDelta: 6 }
+        { id: "essential-cotton", label: "essential cotton", note: "midweight, regular fit", priceDelta: -6 }
     ];
 
     var PALETTE = {
