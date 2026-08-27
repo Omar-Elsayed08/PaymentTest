@@ -382,6 +382,113 @@ body {
     font-weight: 700;
 }
 
+/* Color / material pickers */
+.product-option-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35em;
+}
+
+.product-option__label {
+    font-family: var(--font-body);
+    font-size: var(--product-field-size);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-black);
+}
+
+.product-option-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(0.4rem, 1.2vw, 0.65rem);
+    width: 100%;
+}
+
+.product-option__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    padding: 0.35em 0.7em;
+    border: var(--control-border);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    font-size: var(--product-field-size);
+    line-height: 1.2;
+    cursor: pointer;
+    transition: background-color var(--ease-quick), color var(--ease-quick);
+}
+
+.product-option__btn:hover,
+.product-option__btn:focus-visible {
+    outline: none;
+    background-color: var(--color-cream);
+}
+
+.product-option__btn.is-active {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.product-option__btn.is-unavailable,
+.product-option__btn.is-unavailable:hover,
+.product-option__btn.is-unavailable:focus-visible {
+    background-color: var(--color-white);
+    border-color: #9a9a9a;
+    color: #9a9a9a;
+    opacity: 0.55;
+    cursor: pointer;
+    text-decoration: line-through;
+}
+
+/* Nothing to switch to — this one really is a dead end. */
+.product-option__btn.is-blocked,
+.product-option__btn.is-blocked:hover {
+    cursor: not-allowed;
+}
+
+.product-option__btn.is-unavailable .product-option__chip {
+    border-color: #9a9a9a;
+    opacity: 0.5;
+}
+
+/* Follows the cursor to say why an option is greyed out. */
+.product-tip {
+    position: fixed;
+    z-index: 200;
+    padding: 0.35em 0.6em;
+    border: var(--control-border);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    font-size: clamp(0.75rem, 1.4vw, 0.95rem);
+    line-height: 1.25;
+    max-width: min(18rem, 70vw);
+    pointer-events: none;
+}
+
+.product-option__chip {
+    flex: none;
+    width: 1.1em;
+    height: 1.1em;
+    border: 2px solid var(--color-black);
+    border-radius: 50%;
+    background-color: var(--color-white);
+}
+
+.product-option__btn.is-active .product-option__chip {
+    border-color: var(--color-white);
+}
+
+.product-option__text {
+    font-weight: 700;
+}
+
+.product-option__note {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
 .product-controls {
     display: flex;
     align-items: stretch;
@@ -608,10 +715,24 @@ body {
         --tag-right: var(--safe-right);
         --tag-text-top: 70%;
         --product-info-width: min(100%, var(--tag-width));
+
+        /* Clears the fixed back button / cart chrome the media column scrolls under. */
+        --product-sticky-top: calc(var(--chrome-top) + 2.5rem);
+        /* Keeps the whole media column inside the viewport so it can stay pinned. */
+        --product-image-height: min(
+            clamp(20rem, 57.5vw, 42.5rem),
+            max(16rem, calc(100svh - var(--product-sticky-top) - 8rem))
+        );
     }
 
     .product-canvas {
         position: relative;
+    }
+
+    .product-media {
+        position: sticky;
+        top: var(--product-sticky-top);
+        align-self: start;
     }
 
     .product-tag {

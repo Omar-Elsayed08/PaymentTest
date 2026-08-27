@@ -40,6 +40,13 @@
         info.appendChild(title);
         info.appendChild(size);
 
+        if (line.variantLabel) {
+            var variant = document.createElement("p");
+            variant.className = "cart-item__variant";
+            variant.textContent = line.variantLabel;
+            info.appendChild(variant);
+        }
+
         var controls = document.createElement("div");
         controls.className = "cart-item__controls";
 
@@ -54,7 +61,7 @@
         dec.textContent = "-";
         dec.setAttribute("aria-label", "Decrease quantity");
         dec.addEventListener("click", function () {
-            cart.updateQty(line.id, line.size, line.qty - 1);
+            cart.updateQtyByKey(line.key, line.qty - 1);
         });
 
         var qtyVal = document.createElement("span");
@@ -67,7 +74,7 @@
         inc.textContent = "+";
         inc.setAttribute("aria-label", "Increase quantity");
         inc.addEventListener("click", function () {
-            cart.updateQty(line.id, line.size, line.qty + 1);
+            cart.updateQtyByKey(line.key, line.qty + 1);
         });
 
         qty.appendChild(dec);
@@ -84,7 +91,7 @@
         remove.textContent = "\u2715";
         remove.setAttribute("aria-label", "Remove " + line.title);
         remove.addEventListener("click", function () {
-            cart.removeItem(line.id, line.size);
+            cart.removeByKey(line.key);
         });
 
         controls.appendChild(qty);

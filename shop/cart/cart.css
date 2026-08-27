@@ -209,6 +209,14 @@ body {
     line-height: 1.2;
 }
 
+.cart-item__variant {
+    margin: 0.15em 0 0;
+    font-family: var(--font-body);
+    font-size: var(--cart-item-size-size);
+    line-height: 1.2;
+    opacity: 0.75;
+}
+
 .cart-item__controls {
     display: flex;
     align-items: center;

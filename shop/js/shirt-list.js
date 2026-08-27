@@ -25,19 +25,21 @@
         swatch.className = "shirt-tile__swatch shirt-tile__swatch--" + (item.swatch || "blue");
         swatch.setAttribute("aria-hidden", "true");
 
-       if (item.images && item.images[0]) {
+        var images = data && data.getImages ? data.getImages(item) : (item.images || []);
+
+        if (images[0]) {
             var img1 = document.createElement("img");
             img1.className = "shirt-tile__img shirt-tile__img--1";
-            img1.src = item.images[0];
+            img1.src = images[0];
             img1.alt = "";
             img1.loading = "lazy";
             swatch.appendChild(img1);
         }
 
-        if (item.images && item.images[1]) {
+        if (images[1]) {
             var img2 = document.createElement("img");
             img2.className = "shirt-tile__img shirt-tile__img--2";
-            img2.src = item.images[1];
+            img2.src = images[1];
             img2.alt = "";
             img2.loading = "lazy";
             swatch.appendChild(img2);

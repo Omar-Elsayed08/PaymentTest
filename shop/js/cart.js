@@ -4,8 +4,18 @@
     var STORAGE_KEY = "eb_cart";
     var CHANGE_EVENT = "eb-cart-change";
 
-    function lineKey(id, size) {
-        return id + "::" + (size || "");
+    /* A line is unique per id + size + color + material. */
+    function lineKey(id, size, color, material) {
+        return [id, size || "", color || "", material || ""].join("::");
+    }
+
+    function keyOf(line) {
+        return lineKey(line.id, line.size, line.color, line.material);
+    }
+
+    function optionsKey(id, size, options) {
+        options = options || {};
+        return lineKey(id, size, options.color, options.material);
     }
 
     function readRaw() {
@@ -39,10 +49,6 @@
         window.dispatchEvent(new CustomEvent(CHANGE_EVENT));
     }
 
-    function toCents(price) {
-        return Math.round((Number(price) || 0) * 100);
-    }
-
     function formatPrice(cents) {
         return "$" + (Math.round(cents) / 100).toFixed(2);
     }
@@ -54,7 +60,9 @@
     }
 
     /* Returns cart lines enriched with catalog data, skipping items whose id no
-     * longer exists in SHOP_DATA. */
+     * longer exists in SHOP_DATA. Variant pricing and imagery come from the
+     * shared resolver, so legacy lines saved before colors/materials existed
+     * still resolve to the item's defaults. */
     function getDetailedCart() {
         var data = window.SHOP_DATA;
         return readRaw().map(function (line) {
@@ -62,40 +70,56 @@
             if (!item) {
                 return null;
             }
-            var priceCents = toCents(item.price);
+            var variant = data.resolveVariant(item, {
+                color: line.color,
+                material: line.material
+            });
             return {
+                key: keyOf(line),
                 id: line.id,
                 size: line.size || "",
+                color: variant.colorId,
+                material: variant.materialId,
+                colorLabel: variant.colorLabel,
+                materialLabel: variant.materialLabel,
+                variantLabel: data.describeVariant(variant),
                 qty: line.qty,
                 title: item.title,
-                image: (item.images && item.images[0]) || "",
+                image: variant.images[0] || (item.images && item.images[0]) || "",
                 swatch: item.swatch || "blue",
-                priceCents: priceCents,
-                lineTotalCents: priceCents * line.qty
+                priceCents: variant.priceCents,
+                lineTotalCents: variant.priceCents * line.qty
             };
         }).filter(Boolean);
     }
 
-    function addItem(id, size, qty) {
+    function addItem(id, size, qty, options) {
+        options = options || {};
         qty = Math.max(1, parseInt(qty, 10) || 1);
         var lines = readRaw();
-        var key = lineKey(id, size);
+        var key = optionsKey(id, size, options);
         var existing = lines.find(function (line) {
-            return lineKey(line.id, line.size) === key;
+            return keyOf(line) === key;
         });
         if (existing) {
             existing.qty += qty;
         } else {
-            lines.push({ id: id, size: size || "", qty: qty });
+            lines.push({
+                id: id,
+                size: size || "",
+                color: options.color || "",
+                material: options.material || "",
+                qty: qty
+            });
         }
         writeRaw(lines);
     }
 
-    function updateQty(id, size, qty) {
+    function updateQty(id, size, qty, options) {
         qty = parseInt(qty, 10) || 0;
-        var key = lineKey(id, size);
+        var key = optionsKey(id, size, options);
         var lines = readRaw().filter(function (line) {
-            if (lineKey(line.id, line.size) !== key) {
+            if (keyOf(line) !== key) {
                 return true;
             }
             line.qty = qty;
@@ -104,10 +128,31 @@
         writeRaw(lines);
     }
 
-    function removeItem(id, size) {
-        var key = lineKey(id, size);
+    function removeItem(id, size, options) {
+        var key = optionsKey(id, size, options);
         var lines = readRaw().filter(function (line) {
-            return lineKey(line.id, line.size) !== key;
+            return keyOf(line) !== key;
+        });
+        writeRaw(lines);
+    }
+
+    /* Key-based mutators: the key on a detailed line always matches its stored
+     * row, even for rows saved before variants existed. */
+    function updateQtyByKey(key, qty) {
+        qty = parseInt(qty, 10) || 0;
+        var lines = readRaw().filter(function (line) {
+            if (keyOf(line) !== key) {
+                return true;
+            }
+            line.qty = qty;
+            return qty > 0;
+        });
+        writeRaw(lines);
+    }
+
+    function removeByKey(key) {
+        var lines = readRaw().filter(function (line) {
+            return keyOf(line) !== key;
         });
         writeRaw(lines);
     }
@@ -137,6 +182,8 @@
                     id: line.id,
                     title: line.title,
                     size: line.size,
+                    color: line.color,
+                    material: line.material,
                     qty: line.qty,
                     priceCents: line.priceCents
                 };
@@ -146,21 +193,13 @@
         };
     }
 
-    /* Placeholder checkout. Swap the body for a real API call later, e.g.
-     *   return fetch("/api/checkout", {
-     *       method: "POST",
-     *       headers: { "Content-Type": "application/json" },
-     *       body: JSON.stringify(payload)
-     *   }).then(function (res) { return res.json(); });
-     */
+  
     function checkout() {
         var payload = buildCheckoutPayload();
-        // TODO: POST `payload` to the checkout API and redirect to the returned URL.
         console.log("[EBCart] checkout payload ready:", payload);
         return Promise.resolve(payload);
     }
 
-    /* Subscribe to cart changes (same tab + other tabs). Returns an unsubscribe. */
     function onChange(callback) {
         function handler() {
             callback();
@@ -182,6 +221,8 @@
         addItem: addItem,
         updateQty: updateQty,
         removeItem: removeItem,
+        updateQtyByKey: updateQtyByKey,
+        removeByKey: removeByKey,
         clear: clear,
         getCount: getCount,
         getSubtotalCents: getSubtotalCents,
