@@ -118,22 +118,63 @@ body {
     display: none;
 }
 
-.about-info2 {
+.about-info2-wrap {
     position: absolute;
     left: var(--info2-left);
     top: var(--info2-top);
     width: var(--info2-width);
+}
+
+.about-info2-wrap .about-info2 {
+    position: static;
+    width: 100%;
     height: auto;
     display: block;
 }
 
-.about-music-list {
+.about-info2-link {
+    position: absolute;
+    left: 10%;
+    top: 82%;
+    width: 40%;
+    height:10%;
+    display: block;
+}
+
+.about-music-list-wrap {
     position: absolute;
     left: var(--music-list-left);
     top: var(--music-list-top);
     width: var(--music-list-width);
+    z-index: 2;
+}
+
+.about-music-list-wrap .about-music-list {
+    position: static;
+    width: 100%;
     height: auto;
     display: block;
+}
+
+.music-link {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 12.5%;
+    display: block;
+}
+
+.music-link-1 { top: 28%; }
+.music-link-2 { top: 40%; }
+.music-link-3 { top: 50%; }
+.music-link-4 { top: 59%; }
+.music-link-5 { top: 70%; }
+
+.music-link-6 {
+    left: 67%;      /* placeholder — how far right it starts */
+    width: 30%;      /* placeholder — how wide the corner block is */
+    top: 83%;
+    height: 12.5%;
 }
 
 .about-shadow-star {
