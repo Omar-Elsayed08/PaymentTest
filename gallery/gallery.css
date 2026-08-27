@@ -56,7 +56,7 @@
     --doodle-aspect: 2558 / 1338;
     --doodle-left: 0vw;
     --doodle-top: auto;
-    --doodle-z: 1;
+    --doodle-z: 300;
 
     /* White circle */
     --circle-size: 50vw;
@@ -458,7 +458,7 @@ body {
         /* Mobile doodle */
         --doodle-left: 0vw;
         --doodle-top: 90vw;
-        --doodle-z: 1;
+        --doodle-z: 300;
 
         /* Mobile circle */
         --circle-size: 50vw;
