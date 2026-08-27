@@ -6,7 +6,7 @@
     };
 
     var NAV_LINKS = [
-        { label: "Menu", static: true },
+        { label: " ", static: true },
         { label: "Home", page: "index.html", home: true },
         { label: "About Me", page: "about/about.html" },
         { label: "Gallery", page: "gallery/gallery.html" },
