@@ -12,7 +12,7 @@ window.SHOP_SHIRTS = [
         id: "shirt1",
         title: "doodler",
         description: "test",
-        price: 36,
+        price: 3,
         images: [
             "../../assets/shop/mockups/oversized snow washed /doodler/SW_doodler00001.png",
             "../../assets/shop/mockups/oversized snow washed /doodler/SW_doodler00002.png",
@@ -91,7 +91,7 @@ window.SHOP_SHIRTS = [
             "../../assets/shop/mockups/oversized snow washed /squiggles/SW_squiggles00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
-        swatch: "black"
+        swatch: "blue"
     },
      {
         id: "shirt8",
@@ -127,7 +127,7 @@ window.SHOP_SHIRTS = [
             "../../assets/shop/mockups/oversized snow washed /c elephant/SW_celephant00003.png"
         ],
         sizes: ["S", "M", "L", "XL"],
-        swatch: "black"
+        swatch: "blue"
     },
         {
         id: "shirt11",
@@ -139,7 +139,7 @@ window.SHOP_SHIRTS = [
             "../../assets/shop/mockups/oversized snow washed /c monkey/SW_cmonkey00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
-        swatch: "black"
+        swatch: "blue"
     },
         {
         id: "shirt12",
@@ -163,7 +163,7 @@ window.SHOP_SHIRTS = [
             "../../assets/shop/mockups/oversized snow washed /c grid/SW_cgrid00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
-        swatch: "black"
+        swatch: "orange"
     },
         {
         id: "shirt14",
@@ -175,6 +175,6 @@ window.SHOP_SHIRTS = [
             "../../assets/shop/mockups/oversized snow washed /c grid outline/SW_cgridoutline00002.png"
         ],
         sizes: ["S", "M", "L", "XL"],
-        swatch: "black"
+        swatch: "orange"
     },
 ];

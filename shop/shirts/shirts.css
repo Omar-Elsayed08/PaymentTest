@@ -193,6 +193,25 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: opacity var(--ease-default);
+}
+
+.shirt-tile__img--1 {
+    opacity: 1;
+}
+
+.shirt-tile__img--2 {
+    opacity: 0;
+}
+
+@media (hover: hover) {
+    .shirt-tile:hover .shirt-tile__img--1 {
+        opacity: 0;
+    }
+
+    .shirt-tile:hover .shirt-tile__img--2 {
+        opacity: 1;
+    }
 }
 
 .shirt-tile__label {
