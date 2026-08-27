@@ -29,6 +29,7 @@
     var bunny = design("c bunny", "cbunny");
     var ensemble = design("c grid", "cgrid");
     var outlines = design("c grid outline", "cgridoutline");
+    var hamburger = design("hamburger", "hamburger");
 
     window.SHOP_SHIRTS = [
         shirt({
@@ -282,6 +283,19 @@
                 blue: { sw: [9, 10], ec: [5, 6] },
                 "dark-brown": {ec: [2, 3] },
                 "washed-grey": { sw: [11, 12] },
+            }),
+        }),
+         shirt({
+            id: "shirt15",
+            title: "the essential burger",
+            description: "1 lb. ground beef (80/20 blend), 1 Tbsp. Worcestershire sauce, 1/2 tsp. onion powder, 1/2 tsp. garlic powder, 1/4 tsp. black pepper, 3/4 tsp. kosher salt",
+            price: 42,
+            swatch: "orange",
+            colors: hamburger.colors({
+                snow: { sw: [1, 2] , ec: [1, 2] },
+                red: {sw: [5, 6] },
+                "dark-green": { sw: [3, 4] },
+                green: { sw: [7, 8] },
             }),
         })
     ];
