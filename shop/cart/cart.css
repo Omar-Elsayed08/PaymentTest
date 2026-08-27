@@ -29,22 +29,20 @@
     --cart-item-price-size: clamp(1rem, 2vw, 1.4rem);
     --cart-summary-size: clamp(1.2rem, 2.6vw, 1.9rem);
 
-    /* Footer */
+     /* Footer */
+    --footer-height: 40vw;
+    --footer-z: 60;
     --footer-padding-y: 2vw;
     --footer-padding-x: 1vw;
     --footer-gap: 2vw;
-    --footer-title-size: 7vw;
-    --footer-text-size: 3vw;
+    --footer-title-size: 4vw;
+    --footer-text-size: 1.5vw;
     --footer-info-gap: 3vw;
-    --footer-circles-size: 11vw;
-    --footer-guestbook-size: 2.2vw;
-    --footer-guestbook-width: 25vw;
-    --footer-social-size: 8vw;
-    --footer-social-gap: 5vw;
-
-    --nav-toggle-size-min: 2.25rem;
-    --nav-toggle-size-preferred: 7vw;
-    --nav-toggle-size-max: 3rem;
+    --footer-circles-size: 7vw;
+    --footer-guestbook-size: 2.5vw;
+    --footer-guestbook-width: 28.5vw;
+    --footer-social-size: 7vw;
+    --footer-social-gap: 4vw;
 }
 
 @font-face {
