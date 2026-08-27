@@ -1,4 +1,5 @@
-:root {
+
+    :root {
     --color-cream: #ffe49f;
     --color-blue: #95d4f0;
     --color-black: #000;
@@ -241,6 +242,112 @@ body {
 
 }
 
+/* Flipbook */
+.flipbook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vw;
+}
+
+.flipbook__stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    perspective: 2400px;
+}
+
+.flipbook__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 200;
+    font-family: Georgia, serif;
+    font-size: 1.4vw;
+    line-height: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: wheat;
+    opacity: 1;
+    padding: 0.4em 0.6em;
+    transition: opacity 0.2s ease;
+}
+
+.flipbook__btn:hover,
+.flipbook__btn:focus-visible {
+    opacity: 1;
+}
+
+.flipbook__btn--prev {
+    left: 0.5vw;
+}
+
+.flipbook__btn--next {
+    right: 0.5vw;
+}
+
+.flipbook__btn:disabled {
+    opacity: 0.2;
+    cursor: default;
+
+}
+
+.flipbook__count {
+    font-family: var(--font-body);
+    font-weight: var(--entry-text-weight);
+    font-size: 1.2vw;
+    color: var(--entry-text-color);
+    text-align: center;
+}
+
+.more-entry--book .more-entry__content {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--entry-info-gap);
+}
+
+.more-entry--book .more-entry__image {
+    width: min(50vw, 480px);
+}
+
+.more-entry--book .more-entry__info {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+}
+
+.more-entry--book .more-entry__title,
+.more-entry--book .more-entry__text {
+    text-align: center;
+}
+.flipbook__sheet {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flipbook__face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.flipbook__face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.flipbook__face--back {
+    transform: rotateY(180deg);
+}
+
 /* --------------------------------------------------------------------------
    Mobile
    -------------------------------------------------------------------------- */
@@ -293,5 +400,26 @@ body {
     .more-entry__title,
     .more-entry__text {
         text-align: center;
+    }
+
+    .flipbook__btn {
+        font-size: 4.5vw;
+        opacity: 0.6;
+    }
+
+    .flipbook__btn--prev {
+        left: 1vw;
+    }
+
+    .flipbook__btn--next {
+        right: 1vw;
+    }
+
+    .flipbook__count {
+        font-size: 3.2vw;
+    }
+
+    .more-entry--book .more-entry__image {
+        width: min(70vw, 420px);
     }
 }

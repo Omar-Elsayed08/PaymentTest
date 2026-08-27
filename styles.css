@@ -202,6 +202,13 @@
     --shop-sign-top: 227vw;
     --shop-sign-z: 23;
 
+    /* Shop bar (hanger rod) */
+    --shop-bar-width: 54vw;
+    --shop-bar-left: 54vw;
+    --shop-bar-top: 221.5vw;
+    --shop-bar-height: .5vw;
+    --shop-bar-z: 23;
+
     --shirt-width: 30vw;
     --shirt-top: 220vw;
     --shirt1-left: 50vw;
@@ -483,6 +490,15 @@ body {
 .hero-btn:focus-visible {
     transform: translate(var(--layer-shift-x, 0vw), var(--layer-shift-y, 0vw)) rotate(var(--layer-rotate, 0deg)) scale(1.05);
     outline: none;
+}
+
+.shop-bar {
+    --layer-left: var(--shop-bar-left);
+    --layer-top: var(--shop-bar-top);
+    --layer-width: var(--shop-bar-width);
+    --layer-z: var(--shop-bar-z);
+    height: var(--shop-bar-height);
+    background-color: var(--color-black);
 }
 
 .shop-shirt__img {

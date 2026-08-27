@@ -25,7 +25,7 @@ function scrollProgress() {
     }
 
     const start = vh * 1.1;
-    const end = -vh * 0.5;
+    const end = -vh * 0.1;
     return clamp((start - rect.top) / (start - end), 0, 1);
 }
 

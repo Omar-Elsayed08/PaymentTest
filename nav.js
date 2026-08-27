@@ -152,4 +152,33 @@
             }
         });
     }
+    document.querySelectorAll('.flipbook').forEach(book => {
+    const sheets = [...book.querySelectorAll('.flipbook__sheet')];
+    const total = sheets.length * 2;
+    const prevBtn = book.querySelector('.flipbook__btn--prev');
+    const nextBtn = book.querySelector('.flipbook__btn--next');
+    const countEl = book.querySelector('.flipbook__count');
+    let currentPage = 0;
+
+    function render() {
+        const activeSheet = Math.floor(currentPage / 2);
+        sheets.forEach((sheet, i) => {
+            const flipped = currentPage >= i * 2 + 1;
+            sheet.style.transform = flipped ? 'rotateY(-180deg)' : 'rotateY(0deg)';
+            sheet.style.zIndex = 100 - Math.abs(i - activeSheet);
+        });
+        countEl.textContent = `${currentPage + 1} / ${total}`;
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.disabled = currentPage === total - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 0) { currentPage--; render(); }
+    });
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < total - 1) { currentPage++; render(); }
+    });
+
+    render();
+});
 })();
