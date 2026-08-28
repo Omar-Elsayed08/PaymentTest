@@ -213,6 +213,15 @@ body {
         opacity: 1;
     }
 }
+@media (hover: none) {
+    .shirt-tile:active .shirt-tile__img--1 {
+        opacity: 0;
+    }
+
+    .shirt-tile:active .shirt-tile__img--2 {
+        opacity: 1;
+    }
+}
 
 .shirt-tile__label {
     display: block;
