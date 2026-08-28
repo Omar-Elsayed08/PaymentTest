@@ -1,6 +1,9 @@
-
-(function () {
+    (function () {
     "use strict";
+
+    document.addEventListener("touchstart", function () {}, { passive: true });
+    document.addEventListener("touchend", function () {}, { passive: true });
+    document.addEventListener("touchcancel", function () {}, { passive: true });
 
     var grid = document.querySelector("[data-shirt-grid]");
     var data = window.SHOP_DATA;
@@ -51,6 +54,19 @@
 
         tile.appendChild(swatch);
         tile.appendChild(label);
+
+                swatch.addEventListener("touchstart", function () {
+            swatch.classList.add("is-touched");
+        }, { passive: true });
+
+        swatch.addEventListener("touchend", function () {
+            swatch.classList.remove("is-touched");
+        }, { passive: true });
+
+        swatch.addEventListener("touchcancel", function () {
+            swatch.classList.remove("is-touched");
+        }, { passive: true });
+
         return tile;
     }
 
@@ -83,4 +99,5 @@
         updateCartCount();
         window.EBCart.onChange(updateCartCount);
     }
+
 })();
