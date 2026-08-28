@@ -348,6 +348,101 @@ body {
     transform: rotateY(180deg);
 }
 
+.model-viewer {
+    width: 100%;
+    aspect-ratio: 2 / 2;
+    display: block;
+    --poster-color: transparent;
+}
+
+.more-entry--model .more-entry__content {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--entry-info-gap);
+}
+
+.more-entry--model .more-entry__image {
+    width: min(85vw, 900px);
+}
+
+.more-entry--model .more-entry__info {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+}
+
+.more-entry--model .more-entry__title,
+.more-entry--model .more-entry__text {
+    text-align: center;
+}
+
+.model-viewer {
+    width: 100%;
+    height: 30vw;
+    display: block;
+    --poster-color: transparent;
+}
+
+/* Single flip card */
+.single-flip {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    perspective: 2000px;
+    cursor: pointer;
+}
+
+.single-flip__card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.single-flip__card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.single-flip__face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.single-flip__face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.single-flip__face--back {
+    transform: rotateY(180deg);
+}
+
+.more-entry--flip .more-entry__content {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--entry-info-gap);
+}
+
+.more-entry--flip .more-entry__image {
+    width: min(50vw, 480px);
+}
+
+.more-entry--flip .more-entry__info {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+}
+
+.more-entry--flip .more-entry__title,
+.more-entry--flip .more-entry__text {
+    text-align: center;
+}
+
 /* --------------------------------------------------------------------------
    Mobile
    -------------------------------------------------------------------------- */
@@ -426,5 +521,17 @@ body {
     .flipbook__stage {
         width: 50%;
         align-self: flex-end;
+    }
+
+        .more-entry--model .more-entry__image {
+        width: 98vw;
+    }
+
+    .model-viewer {
+        height: 130vw;
+    }
+
+        .more-entry--flip .more-entry__image {
+        width: 92vw;
     }
 }

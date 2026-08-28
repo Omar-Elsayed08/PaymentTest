@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="more.css">
     <link rel="stylesheet" href="../../nav.css">
     <link rel="icon" type="image/png" href="../../assets/images/favicon 3.png" sizes="32x32">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Everything Burger</title>
@@ -36,18 +37,34 @@
             <div class="more-body">
                 <div class="more-gallery">
 
-                    <!-- Copy this segment \/  -->
-                    <article class="more-entry">
-                        <div class="more-entry__content">
-                            <div class="more-entry__image">
-                                <img src="../../assets/GalleryAssets/more/MoreExample.png" alt="">
-                            </div>
-                            <div class="more-entry__info">
-                                <h2 class="more-entry__title">Nowhere Tonight</h2>
-                                <p class="more-entry__text">Album Artwork for Ridco</p>
-                            </div>
-                        </div>
-                    </article>
+                    <!--flipcard \/ -->
+                    <article class="more-entry more-entry--flip">
+    <div class="more-entry__content">
+        <div class="more-entry__image">
+            <div class="single-flip">
+                <div
+                    class="single-flip__card"
+                    tabindex="0"
+                    role="button"
+                    aria-pressed="false"
+                    aria-label="Flip to see the back"
+                >
+                    <div class="single-flip__face single-flip__face--front">
+                        <img src="../../assets/GalleryAssets/more/Ridco1.png" alt="Front">
+                    </div>
+                    <div class="single-flip__face single-flip__face--back">
+                        <img src="../../assets/GalleryAssets/more/Ridco2.png" alt="Back">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="more-entry__info">
+            <h2 class="more-entry__title">Nowhere Tonight</h2>
+            <p class="more-entry__text">Album Artwork for Ridco (click to flip)</p>
+        </div>
+    </div>
+</article>
+
                     <!-- Copy this segment ^^  -->
                     <article class="more-entry">
                         <div class="more-entry__content">
@@ -71,6 +88,8 @@
                             </div>
                         </div>
                     </article>
+
+
 
 <article class="more-entry more-entry--book">
     <div class="more-entry__content">
@@ -134,7 +153,32 @@
         </div>
         <div class="more-entry__info">
             <h2 class="more-entry__title">Iron Henry</h2>
-            <p class="more-entry__text">Concept Album Art</p>
+            <p class="more-entry__text">Concept Album Art (click the arrows)</p>
+        </div>
+    </div>
+</article>
+
+<article class="more-entry more-entry--model">
+    <div class="more-entry__content">
+        <div class="more-entry__image">
+            <model-viewer
+    class="model-viewer"
+    src="../../assets/3d models/psx_milk_carton.glb"
+    camera-controls
+    touch-action="pan-y"
+    disable-zoom
+    shadow-intensity="1"
+    exposure="1"
+    interaction-prompt="none"
+    bounds="tight"
+    field-of-view="10deg"
+    min-field-of-view="10deg"
+    max-field-of-view="10deg"
+></model-viewer>
+        </div>
+        <div class="more-entry__info">
+            <h2 class="more-entry__title">Model Title</h2>
+            <p class="more-entry__text">Description goes here.</p>
         </div>
     </div>
 </article>

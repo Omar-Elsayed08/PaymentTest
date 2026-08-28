@@ -189,4 +189,37 @@
 
     render();
 });
+
+//__________________________________________________________//
+//helps set two zoom distances for interactable 3d models 
+//___________________________________________________________//
+
+function setModelZoom() {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const fov = isMobile ? '18deg' : '25deg';
+
+    document.querySelectorAll('model-viewer').forEach(model => {
+        model.setAttribute('field-of-view', fov);
+        model.setAttribute('min-field-of-view', fov);
+        model.setAttribute('max-field-of-view', fov);
+    });
+}
+
+setModelZoom();
+window.matchMedia('(max-width: 767px)').addEventListener('change', setModelZoom);
+
+
+document.querySelectorAll('.single-flip__card').forEach(card => {
+    const flip = () => {
+        const flipped = card.classList.toggle('is-flipped');
+        card.setAttribute('aria-pressed', flipped);
+    };
+    card.addEventListener('click', flip);
+    card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            flip();
+        }
+    });
+});
 })();
