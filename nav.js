@@ -154,29 +154,37 @@
     }
     document.querySelectorAll('.flipbook').forEach(book => {
     const sheets = [...book.querySelectorAll('.flipbook__sheet')];
-    const total = sheets.length * 2;
+    const totalSheets = sheets.length;
+    const totalPages = totalSheets * 2;
     const prevBtn = book.querySelector('.flipbook__btn--prev');
     const nextBtn = book.querySelector('.flipbook__btn--next');
     const countEl = book.querySelector('.flipbook__count');
-    let currentPage = 0;
+    let currentSheet = 0;
 
     function render() {
-        const activeSheet = Math.floor(currentPage / 2);
         sheets.forEach((sheet, i) => {
-            const flipped = currentPage >= i * 2 + 1;
+            const flipped = i < currentSheet;
             sheet.style.transform = flipped ? 'rotateY(-180deg)' : 'rotateY(0deg)';
-            sheet.style.zIndex = 100 - Math.abs(i - activeSheet);
+            sheet.style.zIndex = flipped ? 100 + i : 100 - i;
         });
-        countEl.textContent = `${currentPage + 1} / ${total}`;
-        prevBtn.disabled = currentPage === 0;
-        nextBtn.disabled = currentPage === total - 1;
+
+        if (currentSheet === 0) {
+            countEl.textContent = `1 / ${totalPages}`;
+        } else if (currentSheet === totalSheets) {
+            countEl.textContent = `${totalPages} / ${totalPages}`;
+        } else {
+            countEl.textContent = `${currentSheet * 2}-${currentSheet * 2 + 1} / ${totalPages}`;
+        }
+
+        prevBtn.disabled = currentSheet === 0;
+        nextBtn.disabled = currentSheet === totalSheets;
     }
 
     prevBtn.addEventListener('click', () => {
-        if (currentPage > 0) { currentPage--; render(); }
+        if (currentSheet > 0) { currentSheet--; render(); }
     });
     nextBtn.addEventListener('click', () => {
-        if (currentPage < total - 1) { currentPage++; render(); }
+        if (currentSheet < totalSheets) { currentSheet++; render(); }
     });
 
     render();
