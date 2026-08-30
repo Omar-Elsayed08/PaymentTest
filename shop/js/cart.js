@@ -173,8 +173,7 @@
         }, 0);
     }
 
-    /* Assembles the payload the checkout API consumes. The totals are included
-     * for display only; the server reprices every line from its own catalog. */
+    /* Assembles the payload a checkout API would consume. */
     function buildCheckoutPayload() {
         var lines = getDetailedCart();
         return {
@@ -194,16 +193,13 @@
         };
     }
 
-    /* Hands the cart to stripe-checkout.js, which redirects to Stripe. Rejects
-     * so the cart page can show why nothing happened. */
+  
     function checkout() {
-        if (!window.EBCheckout || typeof window.EBCheckout.start !== "function") {
-            return Promise.reject(new Error("Checkout is not loaded."));
-        }
-        return window.EBCheckout.start(buildCheckoutPayload());
+        var payload = buildCheckoutPayload();
+        console.log("[EBCart] checkout payload ready:", payload);
+        return Promise.resolve(payload);
     }
 
-    /* Subscribe to cart changes (same tab + other tabs). Returns an unsubscribe. */
     function onChange(callback) {
         function handler() {
             callback();
