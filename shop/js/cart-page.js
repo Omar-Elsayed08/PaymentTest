@@ -8,9 +8,28 @@
     var summaryEl = document.querySelector("[data-cart-summary]");
     var subtotalEl = document.querySelector("[data-cart-subtotal]");
     var checkoutBtn = document.querySelector("[data-checkout]");
+    var errorEl = document.querySelector("[data-checkout-error]");
+    var defaultCheckoutLabel = checkoutBtn ? checkoutBtn.textContent : "Checkout";
 
     if (!cart || !listEl) {
         return;
+    }
+
+    function setCheckoutError(message) {
+        if (!errorEl) {
+            return;
+        }
+        if (!message) {
+            errorEl.hidden = true;
+            errorEl.textContent = "";
+            return;
+        }
+        errorEl.hidden = false;
+        errorEl.textContent = message;
+    }
+
+    if (/[?&]canceled=1(?:&|$)/.test(window.location.search)) {
+        setCheckoutError("Checkout was canceled. Your cart is unchanged.");
     }
 
     function buildRow(line) {
@@ -141,7 +160,17 @@
 
     if (checkoutBtn) {
         checkoutBtn.addEventListener("click", function () {
-            cart.checkout();
+            if (checkoutBtn.disabled) {
+                return;
+            }
+            setCheckoutError("");
+            checkoutBtn.disabled = true;
+            checkoutBtn.textContent = "Redirecting…";
+            cart.checkout().catch(function (err) {
+                checkoutBtn.disabled = false;
+                checkoutBtn.textContent = defaultCheckoutLabel;
+                setCheckoutError((err && err.message) || "Checkout failed.");
+            });
         });
     }
 

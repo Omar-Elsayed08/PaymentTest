@@ -1,0 +1,29 @@
+{
+  "name": "everything-burger",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Everything Burger shop with Stripe Checkout",
+  "type": "module",
+  "main": "backend/server/index.js",
+  "scripts": {
+    "build": "node backend/scripts/build-catalog.mjs && node backend/scripts/build-site.mjs",
+    "prestart": "node backend/scripts/build-catalog.mjs",
+    "start": "node backend/server/index.js",
+    "dev": "node --watch backend/server/index.js",
+    "cf:dev": "npm run build && wrangler dev",
+    "cf:deploy": "npm run build && wrangler deploy"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^8.1.0",
+    "stripe": "^18.5.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.42.0"
+  }
+}

@@ -1,0 +1,29 @@
+name = "everything-burger"
+main = "backend/worker/index.js"
+compatibility_date = "2026-08-01"
+compatibility_flags = ["nodejs_compat"]
+
+# dist/ is produced by `npm run build`. Requests under /api/ run the Worker,
+# everything else is served as a static file.
+[assets]
+directory = "dist"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+# Serve .html paths as written instead of redirecting to extensionless URLs,
+# so links like cart/cart.html keep working.
+html_handling = "none"
+
+# Attach a custom domain after the zone is on Cloudflare. Uncomment and
+# replace with your real hostname, then also update PUBLIC_BASE_URL below.
+# routes = [{ pattern = "shop.example.com", custom_domain = true }]
+
+# Non-secret settings. Secrets (STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET) are
+# set in the Cloudflare dashboard or with `wrangler secret put`.
+# Never put those values in this file or in GitHub.
+[vars]
+PUBLIC_BASE_URL = "https://everything-burger.tesburgereverything.workers.dev"
+CURRENCY = "usd"
+SHIPPING_CENTS = "800"
+MAX_QTY_PER_LINE = "20"
+MAX_CART_LINES = "30"
+ALLOWED_SHIPPING_COUNTRIES = "US,CA"

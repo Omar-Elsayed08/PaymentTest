@@ -193,11 +193,11 @@
         };
     }
 
-  
     function checkout() {
-        var payload = buildCheckoutPayload();
-        console.log("[EBCart] checkout payload ready:", payload);
-        return Promise.resolve(payload);
+        if (!window.EBCheckout || typeof window.EBCheckout.start !== "function") {
+            return Promise.reject(new Error("Checkout is not loaded."));
+        }
+        return window.EBCheckout.start(buildCheckoutPayload());
     }
 
     function onChange(callback) {
