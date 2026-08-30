@@ -1,6 +1,6 @@
-name = "everything-burger"
-main = "backend/worker/index.js"
-compatibility_date = "2026-08-01"
+name = ""
+main = ""
+compatibility_date = ""
 compatibility_flags = ["nodejs_compat"]
 
 # dist/ is produced by `npm run build`. Requests under /api/ run the Worker,
