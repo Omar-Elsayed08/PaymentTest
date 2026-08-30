@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="../../assets/images/favicon 3.png" sizes="32x32">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Everything Burger</title>
+    <title>Everything Burger — Thank you</title>
 </head>
 <body>
     <a class="shop-back" href="../shop.html">Back</a>
@@ -23,22 +23,9 @@
         <div class="cart-canvas">
             <section class="cart-hero">
                 <header class="cart-header">
-                    <h1 class="cart-title">Your Cart</h1>
+                    <h1 class="cart-title">Thank You</h1>
                 </header>
-
-                <div class="cart-list" data-cart-list></div>
-
-                <p class="cart-empty" data-cart-empty hidden>
-                    Your cart is empty.
-                    <a href="../shop.html">Continue shopping</a>
-                </p>
-
-                <p class="cart-checkout-error" data-checkout-error hidden></p>
-
-                <div class="cart-summary" data-cart-summary hidden>
-                    <p class="cart-subtotal">Subtotal: <span data-cart-subtotal>$0.00</span></p>
-                    <button type="button" class="cart-checkout" data-checkout>Checkout</button>
-                </div>
+                <p class="cart-status" data-checkout-status>Confirming your payment…</p>
             </section>
 
             <div class="shop-divider" aria-hidden="true">
@@ -97,6 +84,6 @@
     <script src="../js/cart.js"></script>
     <script src="../js/checkout-config.js"></script>
     <script src="../js/stripe-checkout.js"></script>
-    <script src="../js/cart-page.js"></script>
+    <script src="../js/checkout-success.js"></script>
 </body>
 </html>

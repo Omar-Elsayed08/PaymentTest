@@ -1,0 +1,7 @@
+node_modules/
+.env
+.dev.vars
+.DS_Store
+backend/server/var/
+.wrangler/
+dist/
